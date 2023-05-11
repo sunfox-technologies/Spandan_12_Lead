@@ -57,7 +57,7 @@ public class SerialCommunicationThread extends Thread {
 //                            System.out.println("Error occurred");
 //                            return;
                         }
-                        System.out.print(s);
+//                        System.out.print(s);
 
                         onDataReceiveListenerFromThread.onDataReceived(s);
 //                        Thread.sleep(1000);
