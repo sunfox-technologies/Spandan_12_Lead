@@ -8,7 +8,6 @@ import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
@@ -16,7 +15,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +22,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 public class HelloController implements Initializable {
@@ -160,6 +159,7 @@ public class HelloController implements Initializable {
     void menuItemDeleteButton() {
         System.out.println("menuItemDeleteButtonClicked");
     }
+    AtomicInteger i= new AtomicInteger();
 
     @FXML
     void menuStartLoggingButton() {
@@ -261,17 +261,18 @@ public class HelloController implements Initializable {
                         if (dataFromSerialPort.contains("error")) {
                             isGraphActive = false;
 
-                            System.out.println(dataFromSerialPort);
+//                            System.out.println(dataFromSerialPort);
 //
                         }
                         if (dataFromSerialPort.equals("Port Closed")) {
                             isGraphActive = false;
                         } else if (isGraphActive && deviceDetectedFromThread.getValue()) {
                             String[] arrayList = dataFromSerialPort.split(",");
-//                            System.out.println(dataFromSerialPort);
                             bufferArray.add(Arrays.toString(arrayList));
+
                             Platform.runLater(() -> {
-                                if (graphDataSeriesV1.getData().size() >= windowSize) {
+
+                                if (graphDataSeriesV2.getData().size() >= windowSize) {
                                     graphDataSeriesV1.getData().remove(0);
                                     graphDataSeriesV2.getData().remove(0);
                                     graphDataSeriesV3.getData().remove(0);
@@ -293,6 +294,7 @@ public class HelloController implements Initializable {
 
                                 }
                             });
+//                            System.out.print(graphDataSeriesV1.getData());
                             if (bufferArray.size() == 10) {
                                 executorService.submit(new LineChartUpdater(graphDataSeriesV1, graphDataSeriesV2, graphDataSeriesV3, graphDataSeriesV4, graphDataSeriesV5, graphDataSeriesV6, graphDataSeriesLead1, graphDataSeriesLead2,graphDataSeriesLead3,arrayList, graphPointsIncrementer));
                                 graphPointsIncrementer++;

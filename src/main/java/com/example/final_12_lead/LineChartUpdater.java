@@ -36,19 +36,19 @@ class LineChartUpdater implements Runnable {
     public void run() {
         Arrays.stream(arrayList).toArray();
         Platform.runLater(() -> {
-            for (int i = 2; i < arrayList.length - 1; ) {
-                graphDataSeriesLead1.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
-                graphDataSeriesLead2.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
-                graphDataSeriesLead3.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
-                graphDataSeriesV1.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
-                graphDataSeriesV2.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
-                graphDataSeriesV3.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
-                graphDataSeriesV4.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
-                graphDataSeriesV5.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
-                graphDataSeriesV6.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[i++])));
+//            System.out.println(arrayList[5]);
+//            for (int i = 2; i < arrayList.length - 1; ) {
+                graphDataSeriesLead1.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[2])));
+                graphDataSeriesLead2.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[3])));
+                graphDataSeriesLead3.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[4])));
+                graphDataSeriesV1.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[5])));
+                graphDataSeriesV2.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[6])));
+                graphDataSeriesV3.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[7])));
+                graphDataSeriesV4.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[8])));
+                graphDataSeriesV5.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[9])));
+                graphDataSeriesV6.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[10])));
 
-            }
-
+//            }
         });
 
     }
