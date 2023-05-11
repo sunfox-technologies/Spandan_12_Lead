@@ -1,0 +1,2 @@
+rootProject.name = "final_12_lead"
+include 'SerialCommunicationModule'
