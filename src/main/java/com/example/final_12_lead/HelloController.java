@@ -29,6 +29,7 @@ import java.util.stream.IntStream;
 public class HelloController implements Initializable {
     @FXML
     private LineChart<String, Number> l1;
+    int x=0;
 
     @FXML
     private LineChart<String, Number> l2;
