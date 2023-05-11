@@ -336,6 +336,7 @@ public class HelloController implements Initializable {
             try {
                 SpandanUsbCommunication.sendCommand("stop");
                 executorService.isTerminated();
+                clearGraph();
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -343,7 +344,30 @@ public class HelloController implements Initializable {
         });
         thread.start();
 
+    }
+    void clearGraph(){
+        graphPointsIncrementer = 0;
+        Platform.runLater(() -> {
+            v1.getData().remove(graphDataSeriesV1);
+            v2.getData().remove(graphDataSeriesV2);
+            v3.getData().remove(graphDataSeriesV3);
+            v4.getData().remove(graphDataSeriesV4);
+            v5.getData().remove(graphDataSeriesV5);
+            v6.getData().remove(graphDataSeriesV6);
+            l1.getData().remove(graphDataSeriesLead1);
+            l2.getData().remove(graphDataSeriesLead2);
+            l3.getData().remove(graphDataSeriesLead3);
 
+            graphDataSeriesV1.getData().clear();
+            graphDataSeriesV2.getData().clear();
+            graphDataSeriesV3.getData().clear();
+            graphDataSeriesV4.getData().clear();
+            graphDataSeriesV5.getData().clear();
+            graphDataSeriesV6.getData().clear();
+            graphDataSeriesLead1.getData().clear();
+            graphDataSeriesLead2.getData().clear();
+            graphDataSeriesLead3.getData().clear();
+        });
     }
 
 
