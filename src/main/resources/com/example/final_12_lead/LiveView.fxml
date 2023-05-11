@@ -65,7 +65,7 @@
          <MenuItem fx:id="menuStopLogging" mnemonicParsing="false" onAction="#menuStopLoggingButton" text="Stop Logging" />
       </Menu>
    </MenuBar>
-   <LineChart fx:id="v2" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="187.0" legendVisible="false" prefHeight="150.0" prefWidth="746.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="v2" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="187.0" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis animated="false" gapStartAndEnd="false" prefWidth="725.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV2" />
       </xAxis>
@@ -76,7 +76,7 @@
          <Insets bottom="23.0" left="-2.0" right="-10.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="l2" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="753.0" layoutY="179.0" legendVisible="false" prefHeight="120.0" prefWidth="940.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="l2" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="753.0" layoutY="179.0" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisLead2" />
       </xAxis>
@@ -87,7 +87,7 @@
          <Insets bottom="15.0" left="-20.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="v3" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="296.0" legendVisible="false" prefHeight="150.0" prefWidth="746.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="v3" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="296.0" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV3" />
       </xAxis>
@@ -98,7 +98,7 @@
          <Insets bottom="15.0" right="-29.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="l3" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="753.0" layoutY="296.0" legendVisible="false" prefHeight="120.0" prefWidth="940.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="l3" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="753.0" layoutY="296.0" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisLead3" />
       </xAxis>
@@ -109,7 +109,7 @@
          <Insets bottom="15.0" left="-20.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="v4" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="413.0" legendVisible="false" prefHeight="150.0" prefWidth="746.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="v4" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutY="413.0" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV4" />
       </xAxis>
@@ -120,9 +120,9 @@
          <Insets bottom="15.0" right="-29.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="avr" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="753.0" layoutY="413.0" legendVisible="false" prefHeight="120.0" prefWidth="940.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="avr" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="753.0" layoutY="413.0" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
-         <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" />
+         <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" />
       </xAxis>
       <yAxis>
          <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
@@ -131,7 +131,7 @@
          <Insets bottom="15.0" left="-20.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="v5" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="-1.0" layoutY="532.0" legendVisible="false" prefHeight="150.0" prefWidth="746.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="v5" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="-1.0" layoutY="532.0" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV5" />
       </xAxis>
@@ -142,7 +142,7 @@
          <Insets bottom="15.0" right="-29.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="avl" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="752.0" layoutY="532.0" legendVisible="false" prefHeight="120.0" prefWidth="940.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="avl" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="752.0" layoutY="532.0" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" />
       </xAxis>
@@ -153,7 +153,7 @@
          <Insets bottom="15.0" left="-20.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="v6" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="-1.0" layoutY="649.0" legendVisible="false" prefHeight="150.0" prefWidth="746.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="v6" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="-1.0" layoutY="649.0" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV6" />
       </xAxis>
@@ -164,7 +164,7 @@
          <Insets bottom="15.0" right="-29.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="avf" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="752.0" layoutY="649.0" legendVisible="false" prefHeight="120.0" prefWidth="940.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="avf" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="752.0" layoutY="649.0" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" />
       </xAxis>
@@ -175,18 +175,7 @@
          <Insets bottom="15.0" left="-20.0" top="25.0" />
       </padding>
    </LineChart>
-   <LineChart fx:id="v1" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="1.0" layoutY="67.0" legendVisible="false" prefHeight="150.0" prefWidth="746.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
-      <xAxis>
-         <CategoryAxis animated="false" gapStartAndEnd="false" prefHeight="1.0" prefWidth="748.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV1" />
-      </xAxis>
-      <yAxis>
-         <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" upperBound="150.0" />
-      </yAxis>
-      <padding>
-         <Insets bottom="24.0" right="-14.0" top="25.0" />
-      </padding>
-   </LineChart>
-   <LineChart fx:id="l1" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="754.0" layoutY="59.0" legendVisible="false" prefHeight="120.0" prefWidth="940.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+   <LineChart fx:id="l1" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="754.0" layoutY="59.0" legendVisible="false" prefHeight="150.0" prefWidth="742.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
       <xAxis>
          <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisLead1" />
       </xAxis>
@@ -220,4 +209,15 @@
          <Font name="System Bold" size="13.0" />
       </font>
    </Label>
+   <LineChart fx:id="v1" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="21.0" layoutY="59.0" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+      <xAxis>
+         <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV1" />
+      </xAxis>
+      <yAxis>
+         <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+      </yAxis>
+      <padding>
+         <Insets bottom="15.0" left="-20.0" top="25.0" />
+      </padding>
+   </LineChart>
 </AnchorPane>
