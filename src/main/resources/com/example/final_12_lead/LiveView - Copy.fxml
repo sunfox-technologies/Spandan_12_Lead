@@ -79,7 +79,7 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <VBox layoutX="50.0" layoutY="18.0" prefHeight="1085.0" prefWidth="1028.0">
+            <VBox layoutX="62.0" layoutY="15.0" prefHeight="1089.0" prefWidth="1016.0">
                <children>
                   <StackPane prefHeight="86.0" prefWidth="1238.0">
                      <children>
@@ -247,7 +247,7 @@
                      <children>
                         <LineChart fx:id="avr" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
                            <xAxis>
-                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" />
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" fx:id="xAxisAvr" />
                            </xAxis>
                            <yAxis>
                               <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
@@ -265,7 +265,7 @@
                      <children>
                         <LineChart fx:id="avl" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
                            <xAxis>
-                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" />
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisAvl" />
                            </xAxis>
                            <yAxis>
                               <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
@@ -283,7 +283,7 @@
                      <children>
                         <LineChart fx:id="avf" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
                            <xAxis>
-                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" />
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisAvf" />
                            </xAxis>
                            <yAxis>
                               <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
@@ -307,18 +307,27 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label contentDisplay="CENTER" graphicTextGap="0.0" layoutX="-4.0" layoutY="301.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="     V1" textAlignment="CENTER" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="-4.0" layoutY="480.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V3" textFill="WHITE" />
-            <Label alignment="CENTER" layoutY="386.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V2" textFill="WHITE" />
-            <Label alignment="CENTER" layoutY="568.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V4" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="-4.0" layoutY="667.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V5" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="-4.0" layoutY="750.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V6" textFill="WHITE" />
-            <Label layoutX="5.0" layoutY="45.0" prefHeight="18.0" prefWidth="40.0" style="-fx-background-color: #e6005c;" text="Lead I" textFill="WHITE" />
-            <Label layoutX="6.0" layoutY="212.0" style="-fx-background-color: #e6005c;" text="Lead III" textFill="WHITE" />
-            <Label layoutX="7.0" layoutY="113.0" style="-fx-background-color: #e6005c;" text="Lead II" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="3.0" layoutY="834.0" prefHeight="18.0" prefWidth="43.0" style="-fx-background-color: #e6005c;" text="aVR" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="3.0" layoutY="932.0" prefHeight="18.0" prefWidth="43.0" style="-fx-background-color: #e6005c;" text="aVL" textFill="WHITE" />
-            <Label alignment="CENTER" layoutX="3.0" layoutY="1026.0" prefHeight="18.0" prefWidth="43.0" style="-fx-background-color: #e6005c;" text="aVF" textFill="WHITE" />
+            <Label contentDisplay="CENTER" graphicTextGap="0.0" layoutX="-4.0" layoutY="301.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="     V1" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="-4.0" layoutY="480.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V3" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutY="386.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V2" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutY="568.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V4" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="-4.0" layoutY="667.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V5" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="-4.0" layoutY="750.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V6" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label contentDisplay="CENTER" layoutX="5.0" layoutY="45.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="Lead I" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+               <padding>
+                  <Insets left="8.0" />
+               </padding></Label>
+            <Label contentDisplay="CENTER" layoutX="6.0" layoutY="212.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="Lead III" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+               <padding>
+                  <Insets left="6.0" />
+               </padding></Label>
+            <Label contentDisplay="CENTER" layoutX="7.0" layoutY="113.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="Lead II" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+               <padding>
+                  <Insets left="8.0" />
+               </padding></Label>
+            <Label alignment="CENTER" layoutX="3.0" layoutY="834.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="aVR" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="3.0" layoutY="932.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="aVL" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="3.0" layoutY="1026.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="aVF" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
          </children>
       </AnchorPane>
    </content>

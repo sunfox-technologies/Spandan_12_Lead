@@ -5,6 +5,8 @@ import javafx.scene.chart.XYChart;
 
 import java.util.Arrays;
 
+import static java.lang.Math.sqrt;
+
 class LineChartUpdater implements Runnable {
     private XYChart.Series<String, Number> graphDataSeriesV1;
     private XYChart.Series<String, Number> graphDataSeriesV2;
@@ -15,10 +17,13 @@ class LineChartUpdater implements Runnable {
     private XYChart.Series<String, Number> graphDataSeriesLead1;
     private XYChart.Series<String, Number> graphDataSeriesLead2;
     private XYChart.Series<String, Number> graphDataSeriesLead3;
+    private XYChart.Series<String, Number> graphDataSeriesAvf;
+    private XYChart.Series<String, Number> graphDataSeriesAvl;
+    private XYChart.Series<String, Number> graphDataSeriesAvr;
     private String[] arrayList;
     int graphPointIncrementer;
 
-    public LineChartUpdater(XYChart.Series<String, Number> graphDataSeriesV1, XYChart.Series<String, Number> graphDataSeriesV2, XYChart.Series<String, Number> graphDataSeriesV3, XYChart.Series<String, Number> graphDataSeriesV4, XYChart.Series<String, Number> graphDataSeriesV5, XYChart.Series<String, Number> graphDataSeriesV6, XYChart.Series<String, Number> graphDataSeriesLead1, XYChart.Series<String, Number> graphDataSeries8, XYChart.Series<String, Number> graphDataSeriesLead3, String[] arrayList, int graphPointsIncrementer) {
+    public LineChartUpdater(XYChart.Series<String, Number> graphDataSeriesV1, XYChart.Series<String, Number> graphDataSeriesV2, XYChart.Series<String, Number> graphDataSeriesV3, XYChart.Series<String, Number> graphDataSeriesV4, XYChart.Series<String, Number> graphDataSeriesV5, XYChart.Series<String, Number> graphDataSeriesV6, XYChart.Series<String, Number> graphDataSeriesLead1, XYChart.Series<String, Number> graphDataSeries8, XYChart.Series<String, Number> graphDataSeriesLead3,XYChart.Series<String, Number> graphDataSeriesAvf,XYChart.Series<String, Number> graphDataSeriesAvl,XYChart.Series<String, Number> graphDataSeriesAvr, String[] arrayList, int graphPointsIncrementer) {
         this.graphDataSeriesV1 = graphDataSeriesV1;
         this.graphDataSeriesV2 = graphDataSeriesV2;
         this.graphDataSeriesV3 = graphDataSeriesV3;
@@ -28,6 +33,9 @@ class LineChartUpdater implements Runnable {
         this.graphDataSeriesLead1 = graphDataSeriesLead1;
         this.graphDataSeriesLead2 = graphDataSeries8;
         this.graphDataSeriesLead3 = graphDataSeriesLead3;
+        this.graphDataSeriesAvf=graphDataSeriesAvf;
+        this.graphDataSeriesAvl=graphDataSeriesAvl;
+        this.graphDataSeriesAvr=graphDataSeriesAvr;
         this.arrayList = arrayList;
         this.graphPointIncrementer = graphPointsIncrementer;
     }
@@ -47,7 +55,9 @@ class LineChartUpdater implements Runnable {
                 graphDataSeriesV4.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[8])));
                 graphDataSeriesV5.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[9])));
                 graphDataSeriesV6.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[10])));
-
+                graphDataSeriesAvl.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), (( Double.valueOf(arrayList[3]) - Double.valueOf(arrayList[2])))/sqrt(3)));
+                graphDataSeriesAvr.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), (( Double.valueOf(arrayList[2]) - Double.valueOf(arrayList[3]))*2.0)/sqrt(3)));
+                graphDataSeriesAvf.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer),(( Double.valueOf(arrayList[3]) - Double.valueOf(arrayList[2]))*2.0)/sqrt(3)));
 //            }
         });
 
