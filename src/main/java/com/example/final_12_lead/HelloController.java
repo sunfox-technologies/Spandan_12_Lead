@@ -93,7 +93,7 @@ public class HelloController implements Initializable {
     XYChart.Series<String, Number> graphDataSeriesLead1 = new XYChart.Series<>();
     XYChart.Series<String, Number> graphDataSeriesLead2 = new XYChart.Series<>();
     XYChart.Series<String, Number> graphDataSeriesLead3 = new XYChart.Series<>();
-    int windowSize = 500;
+    int windowSize = 300;
 
     SerialPort mySerialPort;
     public static BooleanProperty deviceDetectedFromThread = new SimpleBooleanProperty(false);
@@ -268,6 +268,7 @@ public class HelloController implements Initializable {
                             isGraphActive = false;
                         } else if (isGraphActive && deviceDetectedFromThread.getValue()) {
                             String[] arrayList = dataFromSerialPort.split(",");
+                            System.out.println(dataFromSerialPort);;
                             bufferArray.add(Arrays.toString(arrayList));
 
                             Platform.runLater(() -> {
@@ -295,7 +296,7 @@ public class HelloController implements Initializable {
                                 }
                             });
 //                            System.out.print(graphDataSeriesV1.getData());
-                            if (bufferArray.size() == 10) {
+                            if (bufferArray.size() == 15) {
                                 executorService.submit(new LineChartUpdater(graphDataSeriesV1, graphDataSeriesV2, graphDataSeriesV3, graphDataSeriesV4, graphDataSeriesV5, graphDataSeriesV6, graphDataSeriesLead1, graphDataSeriesLead2,graphDataSeriesLead3,arrayList, graphPointsIncrementer));
                                 graphPointsIncrementer++;
                                 bufferArray.clear();
