@@ -15,7 +15,7 @@ public class TestMain extends Application {
         Thread thread = new Thread(()->{
             Platform.runLater(()->{
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(TestMain.class.getResource("LiveView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(TestMain.class.getResource("LiveView - Copy.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
 //                stage.setFullScreen(false);

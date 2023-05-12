@@ -29,21 +29,21 @@ import java.util.stream.IntStream;
 
 public class MainController3 implements Initializable {
     @FXML
-    private LineChart<String,Number> chart1;
+    private LineChart<String, Number> chart1;
     @FXML
-    private LineChart<String,Number> chart2;
+    private LineChart<String, Number> chart2;
     @FXML
-    private LineChart<String,Number> chart3;
+    private LineChart<String, Number> chart3;
     @FXML
-    private LineChart<String,Number> chart4;
+    private LineChart<String, Number> chart4;
     @FXML
-    private LineChart<String,Number> chart5;
+    private LineChart<String, Number> chart5;
     @FXML
-    private LineChart<String,Number> chart6;
+    private LineChart<String, Number> chart6;
     @FXML
-    private LineChart<String,Number> chart7;
+    private LineChart<String, Number> chart7;
     @FXML
-    private LineChart<String,Number> chart8;
+    private LineChart<String, Number> chart8;
     @FXML
     private Label deviceDetectionLabel;
     @FXML
@@ -73,10 +73,12 @@ public class MainController3 implements Initializable {
     XYChart.Series<String, Number> graphDataSeries6 = new XYChart.Series<>();
     XYChart.Series<String, Number> graphDataSeries7 = new XYChart.Series<>();
     XYChart.Series<String, Number> graphDataSeries8 = new XYChart.Series<>();
+    XYChart.Series<String, Number> graphDataSeries9 = new XYChart.Series<>();
     int windowSize = 300;
     public static BooleanProperty deviceDetectedFromThread = new SimpleBooleanProperty(false);
     @FXML
     StackPane paneContainingGraph1 = new StackPane();
+
     public MainController3() {
         Thread deviceDetectingThread = new Thread(() -> {
             try {
@@ -97,6 +99,7 @@ public class MainController3 implements Initializable {
         });
         deviceDetectingThread.start();
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         deviceDetectedFromThread.addListener((observableValue, deviceDisconnectedListener, deviceConnectedListener) -> {
@@ -109,15 +112,18 @@ public class MainController3 implements Initializable {
                 Platform.runLater(() -> {
                     deviceDetectionLabel.setStyle("-fx-background-color : red");
                     deviceDetectionLabel.setText("Device Disconnected");
-                    isGraphActive=false;
+                    isGraphActive = false;
                     clearGraph();
                 });
             }
         });
     }
+    static  int i = 0;
+
     Boolean isGraphActive = false;
     ExecutorService executorService = Executors.newFixedThreadPool(8);
     ArrayList<String> bufferArray = new ArrayList<>();
+
     @FXML
     void startGraphAction() {
         if (deviceDetectedFromThread.getValue() && !isGraphActive) {
@@ -163,7 +169,7 @@ public class MainController3 implements Initializable {
                 }
                 graphLoadingProgressIndicator.setVisible(false);
                 Platform.runLater(() -> {
-                   paneContainingGraph1.getChildren().remove(graphLoadingProgressIndicator);
+                    paneContainingGraph1.getChildren().remove(graphLoadingProgressIndicator);
                 });
                 List<String> xAxisCategoriesList = IntStream.range(0, windowSize)
                         .mapToObj(String::valueOf).toList();
@@ -191,15 +197,15 @@ public class MainController3 implements Initializable {
             });
             progressIndicatorThread.start();
             isGraphActive = true;
-            chart1.getData().add(graphDataSeries1);
-            chart2.getData().add(graphDataSeries2);
-            chart3.getData().add(graphDataSeries3);
-            chart4.getData().add(graphDataSeries4);
-            chart5.getData().add(graphDataSeries5);
-            chart6.getData().add(graphDataSeries6);
-            chart7.getData().add(graphDataSeries7);
-            chart8.getData().add(graphDataSeries8);
             Platform.runLater(() -> {
+                chart1.getData().add(graphDataSeries1);
+                chart2.getData().add(graphDataSeries2);
+                chart3.getData().add(graphDataSeries3);
+                chart4.getData().add(graphDataSeries4);
+                chart5.getData().add(graphDataSeries5);
+                chart6.getData().add(graphDataSeries6);
+                chart7.getData().add(graphDataSeries7);
+                chart8.getData().add(graphDataSeries8);
                 graphDataSeries1.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeries2.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeries3.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
@@ -230,41 +236,44 @@ public class MainController3 implements Initializable {
                         if (dataFromSerialPort.equals("Port Closed")) {
                             isGraphActive = false;
                         } else if (isGraphActive && deviceDetectedFromThread.getValue()) {
-                            String[] arrayList = dataFromSerialPort.split(",");
-//                            System.out.println(arrayList[2]);
-                            bufferArray.add(Arrays.toString(arrayList));
-                            Platform.runLater(() -> {
-                                if (graphDataSeries1.getData().size() >= windowSize) {
-                                    graphDataSeries1.getData().remove(0);
-                                    graphDataSeries2.getData().remove(0);
-                                    graphDataSeries3.getData().remove(0);
-                                    graphDataSeries4.getData().remove(0);
-                                    graphDataSeries5.getData().remove(0);
-                                    graphDataSeries6.getData().remove(0);
-                                    graphDataSeries7.getData().remove(0);
-                                    graphDataSeries8.getData().remove(0);
-                                    xAxis.setAutoRanging(true);
-                                    xAxis2.setAutoRanging(true);
-                                    xAxis3.setAutoRanging(true);
-                                    xAxis4.setAutoRanging(true);
-                                    xAxis5.setAutoRanging(true);
-                                    xAxis6.setAutoRanging(true);
-                                    xAxis7.setAutoRanging(true);
-                                    xAxis8.setAutoRanging(true);
 
-                                }
-                            });
-                            if (bufferArray.size() == 15) {
-//                                executorService.submit(new LineChartUpdater(graphDataSeries1, graphDataSeries2, graphDataSeries3, graphDataSeries4, graphDataSeries5, graphDataSeries6, graphDataSeries7, graphDataSeries8,,  arrayList, graphPointsIncrementer));
-                                graphPointsIncrementer++;
-                                bufferArray.clear();
-                            }
+                            String[] arrayList = dataFromSerialPort.split(",");
+                            graphDataSeries1.getData().add(new XYChart.Data<>(String.valueOf(i++), Double.valueOf(arrayList[2])));
+
+//                            System.out.println(arrayList[2]);
+//                            bufferArray.add(Arrays.toString(arrayList));
+//                            Platform.runLater(() -> {
+//                                if (graphDataSeries1.getData().size() >= windowSize) {
+//                                    graphDataSeries1.getData().remove(0);
+//                                    graphDataSeries2.getData().remove(0);
+//                                    graphDataSeries3.getData().remove(0);
+//                                    graphDataSeries4.getData().remove(0);
+//                                    graphDataSeries5.getData().remove(0);
+//                                    graphDataSeries6.getData().remove(0);
+//                                    graphDataSeries7.getData().remove(0);
+//                                    graphDataSeries8.getData().remove(0);
+//                                    xAxis.setAutoRanging(true);
+//                                    xAxis2.setAutoRanging(true);
+//                                    xAxis3.setAutoRanging(true);
+//                                    xAxis4.setAutoRanging(true);
+//                                    xAxis5.setAutoRanging(true);
+//                                    xAxis6.setAutoRanging(true);
+//                                    xAxis7.setAutoRanging(true);
+//                                    xAxis8.setAutoRanging(true);
+//                                }
+//                            });
+//                            if (bufferArray.size() == 15) {
+//                                executorService.submit(new LineChartUpdater(graphDataSeries1, graphDataSeries2, graphDataSeries3, graphDataSeries4, graphDataSeries5, graphDataSeries6, graphDataSeries7, graphDataSeries8, graphDataSeries9, arrayList, graphPointsIncrementer));
+//                                graphPointsIncrementer++;
+//                                bufferArray.clear();
+//                            }
 
                         } else {
                             SpandanUsbCommunication.sendCommand("stop");
                             isGraphActive = false;
                         }
                     }
+
                     @Override
                     public void usbAuthentication(String data) {
 
@@ -307,7 +316,8 @@ public class MainController3 implements Initializable {
 
 
     }
-    void clearGraph(){
+
+    void clearGraph() {
         graphPointsIncrementer = 0;
         Platform.runLater(() -> {
             chart1.getData().remove(graphDataSeries1);
@@ -329,6 +339,7 @@ public class MainController3 implements Initializable {
             graphDataSeries8.getData().clear();
         });
     }
+
     @FXML
     void closeWindow() {
         Stage stage = (Stage) deviceDetectionLabel.getScene().getWindow();
@@ -338,3 +349,4 @@ public class MainController3 implements Initializable {
     }
 
 }
+
