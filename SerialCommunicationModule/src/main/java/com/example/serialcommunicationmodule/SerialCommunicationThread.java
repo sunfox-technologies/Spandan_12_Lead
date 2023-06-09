@@ -38,7 +38,7 @@ public class SerialCommunicationThread extends Thread {
             );
             return;
         }
-        if (spandanInputCommand.equals("c") ) {
+        if (spandanInputCommand.equals("d") ) {
 
 //            System.out.println("Starting writing");
             byte[] readBuffer = new byte[64];

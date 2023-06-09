@@ -35,6 +35,14 @@ public class HelloController implements Initializable {
 
     @FXML
     private LineChart<String, Number> l3;
+    @FXML
+    private LineChart<String, Number> avf;
+
+    @FXML
+    private LineChart<String, Number> avl;
+
+    @FXML
+    private LineChart<String, Number> avr;
 
     @FXML
     private Label loggingStatus;
@@ -64,25 +72,31 @@ public class HelloController implements Initializable {
 
     @FXML
     private CategoryAxis xAxisV6;
+    @FXML
+    private CategoryAxis xAxisAvr;
+    @FXML
+    private CategoryAxis xAxisAvf;
+    @FXML
+    private CategoryAxis xAxisAvl;
 
 
     @FXML
-    private LineChart<String,Number> v1;
+    private LineChart<String, Number> v1;
 
     @FXML
-    private LineChart<String,Number> v2;
+    private LineChart<String, Number> v2;
 
     @FXML
-    private LineChart<String,Number> v3;
+    private LineChart<String, Number> v3;
 
     @FXML
-    private LineChart<String,Number> v4;
+    private LineChart<String, Number> v4;
 
     @FXML
-    private LineChart<String,Number> v5;
+    private LineChart<String, Number> v5;
 
     @FXML
-    private LineChart<String,Number> v6;
+    private LineChart<String, Number> v6;
 
     //    ProgressIndicator graphLoadingProgressIndicator;
     XYChart.Series<String, Number> graphDataSeriesV1 = new XYChart.Series<>();
@@ -94,10 +108,14 @@ public class HelloController implements Initializable {
     XYChart.Series<String, Number> graphDataSeriesLead1 = new XYChart.Series<>();
     XYChart.Series<String, Number> graphDataSeriesLead2 = new XYChart.Series<>();
     XYChart.Series<String, Number> graphDataSeriesLead3 = new XYChart.Series<>();
-    int windowSize = 500;
+    XYChart.Series<String, Number> graphDataSeriesAvr = new XYChart.Series<>();
+    XYChart.Series<String, Number> graphDataSeriesAvl = new XYChart.Series<>();
+    XYChart.Series<String, Number> graphDataSeriesAvf = new XYChart.Series<>();
+    int windowSize = 300;
 
     SerialPort mySerialPort;
     public static BooleanProperty deviceDetectedFromThread = new SimpleBooleanProperty(false);
+
     public HelloController() {
         Thread deviceDetectingThread = new Thread(() -> {
             try {
@@ -118,6 +136,7 @@ public class HelloController implements Initializable {
         });
         deviceDetectingThread.start();
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         deviceDetectedFromThread.addListener((observableValue, deviceDisconnectedListener, deviceConnectedListener) -> {
@@ -136,11 +155,13 @@ public class HelloController implements Initializable {
             }
         });
     }
+
     Boolean isGraphActive = false;
     ExecutorService executorService = Executors.newFixedThreadPool(8);
     ArrayList<String> bufferArray = new ArrayList<>();
 
     static int graphPointsIncrementer = 0;
+
     @FXML
     void menuHelpAboutButton() {
 
@@ -160,7 +181,8 @@ public class HelloController implements Initializable {
     void menuItemDeleteButton() {
         System.out.println("menuItemDeleteButtonClicked");
     }
-    AtomicInteger i= new AtomicInteger();
+
+    AtomicInteger i = new AtomicInteger();
 
     @FXML
     void menuStartLoggingButton() {
@@ -222,6 +244,9 @@ public class HelloController implements Initializable {
                     xAxisLead1.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(xAxisCategories)));
                     xAxisLead2.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(xAxisCategories)));
                     xAxisLead3.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(xAxisCategories)));
+                    xAxisAvf.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(xAxisCategories)));
+                    xAxisAvl.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(xAxisCategories)));
+                    xAxisAvr.setCategories(FXCollections.<String>observableArrayList(Arrays.asList(xAxisCategories)));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -245,6 +270,10 @@ public class HelloController implements Initializable {
             l1.getData().add(graphDataSeriesLead1);
             l2.getData().add(graphDataSeriesLead2);
             l3.getData().add(graphDataSeriesLead3);
+            avl.getData().add(graphDataSeriesAvl);
+            avf.getData().add(graphDataSeriesAvf);
+            avr.getData().add(graphDataSeriesAvr);
+
             Platform.runLater(() -> {
                 graphDataSeriesV1.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeriesV2.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
@@ -254,6 +283,11 @@ public class HelloController implements Initializable {
                 graphDataSeriesV6.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeriesLead1.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeriesLead2.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
+                graphDataSeriesAvl.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
+                graphDataSeriesAvf.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
+                graphDataSeriesAvr.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
+                graphDataSeriesLead3.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
+
             });
             Thread thread = new Thread(() -> {
                 OnReceiveDataListenerFromModuleToUI onReceiveDataListenerFromModuleToUI = new OnReceiveDataListenerFromModuleToUI() {
@@ -269,11 +303,11 @@ public class HelloController implements Initializable {
                             isGraphActive = false;
                         } else if (isGraphActive && deviceDetectedFromThread.getValue()) {
                             String[] arrayList = dataFromSerialPort.split(",");
+//                            System.out.println(dataFromSerialPort);
                             bufferArray.add(Arrays.toString(arrayList));
-
                             Platform.runLater(() -> {
 
-                                if (graphDataSeriesV2.getData().size() >= windowSize) {
+                                if (graphDataSeriesLead1.getData().size() >= windowSize) {
                                     graphDataSeriesV1.getData().remove(0);
                                     graphDataSeriesV2.getData().remove(0);
                                     graphDataSeriesV3.getData().remove(0);
@@ -283,6 +317,9 @@ public class HelloController implements Initializable {
                                     graphDataSeriesLead1.getData().remove(0);
                                     graphDataSeriesLead2.getData().remove(0);
                                     graphDataSeriesLead3.getData().remove(0);
+                                    graphDataSeriesAvf.getData().remove(0);
+                                    graphDataSeriesAvl.getData().remove(0);
+                                    graphDataSeriesAvr.getData().remove(0);
                                     xAxisLead1.setAutoRanging(true);
                                     xAxisLead2.setAutoRanging(true);
                                     xAxisLead3.setAutoRanging(true);
@@ -292,12 +329,15 @@ public class HelloController implements Initializable {
                                     xAxisV4.setAutoRanging(true);
                                     xAxisV5.setAutoRanging(true);
                                     xAxisV6.setAutoRanging(true);
+                                    xAxisAvf.setAutoRanging(true);
+                                    xAxisAvl.setAutoRanging(true);
+                                    xAxisAvr.setAutoRanging(true);
 
                                 }
                             });
 //                            System.out.print(graphDataSeriesV1.getData());
-                            if (bufferArray.size() == 10) {
-                                executorService.submit(new LineChartUpdater(graphDataSeriesV1, graphDataSeriesV2, graphDataSeriesV3, graphDataSeriesV4, graphDataSeriesV5, graphDataSeriesV6, graphDataSeriesLead1, graphDataSeriesLead2,graphDataSeriesLead3,arrayList, graphPointsIncrementer));
+                            if (bufferArray.size() == 15) {
+                                executorService.submit(new LineChartUpdater(graphDataSeriesV1, graphDataSeriesV2, graphDataSeriesV3, graphDataSeriesV4, graphDataSeriesV5, graphDataSeriesV6, graphDataSeriesLead1, graphDataSeriesLead2, graphDataSeriesLead3,graphDataSeriesAvf,graphDataSeriesAvl,graphDataSeriesAvr, arrayList, graphPointsIncrementer));
                                 graphPointsIncrementer++;
                                 bufferArray.clear();
                             }
@@ -307,6 +347,7 @@ public class HelloController implements Initializable {
                             isGraphActive = false;
                         }
                     }
+
                     @Override
                     public void usbAuthentication(String data) {
 
@@ -339,6 +380,7 @@ public class HelloController implements Initializable {
             try {
                 SpandanUsbCommunication.sendCommand("stop");
                 executorService.isTerminated();
+                clearGraph();
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -346,11 +388,37 @@ public class HelloController implements Initializable {
         });
         thread.start();
 
-
     }
 
-
-
+    void clearGraph() {
+        graphPointsIncrementer = 0;
+        Platform.runLater(() -> {
+            v1.getData().remove(graphDataSeriesV1);
+            v2.getData().remove(graphDataSeriesV2);
+            v3.getData().remove(graphDataSeriesV3);
+            v4.getData().remove(graphDataSeriesV4);
+            v5.getData().remove(graphDataSeriesV5);
+            v6.getData().remove(graphDataSeriesV6);
+            l1.getData().remove(graphDataSeriesLead1);
+            l2.getData().remove(graphDataSeriesLead2);
+            l3.getData().remove(graphDataSeriesLead3);
+            avl.getData().remove(graphDataSeriesAvl);
+            avf.getData().remove(graphDataSeriesAvf);
+            avr.getData().remove(graphDataSeriesAvr);
+            graphDataSeriesV1.getData().clear();
+            graphDataSeriesV2.getData().clear();
+            graphDataSeriesV3.getData().clear();
+            graphDataSeriesV4.getData().clear();
+            graphDataSeriesV5.getData().clear();
+            graphDataSeriesV6.getData().clear();
+            graphDataSeriesLead1.getData().clear();
+            graphDataSeriesLead2.getData().clear();
+            graphDataSeriesLead3.getData().clear();
+            graphDataSeriesAvf.getData().clear();
+            graphDataSeriesAvl.getData().clear();
+            graphDataSeriesAvr.getData().clear();
+        });
+    }
 
 
 }

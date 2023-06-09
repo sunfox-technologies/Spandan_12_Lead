@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="1205.0" prefWidth="1319.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.final_12_lead.HelloController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1204.0" prefWidth="1321.0">
+         <children>
+            <MenuBar fx:id="startLogging" layoutX="1102.0" layoutY="63.0" prefHeight="30.0" prefWidth="183.0">
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#menuItemCloseButton" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" onAction="#menuItemDeleteButton" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#menuHelpAboutButton" text="About" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Logging">
+                     <items>
+                        <MenuItem fx:id="menuStartLogging" mnemonicParsing="false" onAction="#menuStartLoggingButton" text="Start Logging" />
+                        <MenuItem fx:id="menuStopLogging" mnemonicParsing="false" onAction="#menuStopLoggingButton" text="Stop Logging" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <VBox layoutX="62.0" layoutY="15.0" prefHeight="1089.0" prefWidth="1016.0">
+               <children>
+                  <StackPane prefHeight="86.0" prefWidth="1238.0">
+                     <children>
+                        <LineChart fx:id="l1" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="742.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisLead1" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="82.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="l2" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="199.0" prefWidth="254.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisLead2" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="52.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="l3" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisLead3" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="40.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="v1" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="143.0" prefWidth="1226.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV1" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="75.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="v2" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="1271.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" prefWidth="725.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV2" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="55.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="v3" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV3" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="41.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="v4" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV4" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="63.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="v5" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV5" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="30.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="v6" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="716.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisV6" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="78.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="avr" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisAvr" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="39.0" prefWidth="1252.0">
+                     <children>
+                        <LineChart fx:id="avl" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisAvl" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <LineChart fx:id="avf" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                           <xAxis>
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisAvf" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />
+                           </yAxis>
+                           <padding>
+                              <Insets bottom="15.0" left="-20.0" top="25.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets top="-60.0" />
+                           </StackPane.margin>
+                        </LineChart>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <Label fx:id="loggingStatus" alignment="CENTER" layoutX="1120.0" layoutY="106.0" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: red;" text="Device Disconnected" textFill="#ebeeef">
+               <effect>
+                  <Reflection />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" graphicTextGap="0.0" layoutX="-4.0" layoutY="301.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="     V1" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="-4.0" layoutY="480.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V3" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutY="386.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V2" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutY="568.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V4" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="-4.0" layoutY="667.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V5" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="-4.0" layoutY="750.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="V6" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label contentDisplay="CENTER" layoutX="5.0" layoutY="45.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="Lead I" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+               <padding>
+                  <Insets left="8.0" />
+               </padding></Label>
+            <Label contentDisplay="CENTER" layoutX="6.0" layoutY="212.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="Lead III" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+               <padding>
+                  <Insets left="6.0" />
+               </padding></Label>
+            <Label contentDisplay="CENTER" layoutX="7.0" layoutY="113.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="Lead II" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+               <padding>
+                  <Insets left="8.0" />
+               </padding></Label>
+            <Label alignment="CENTER" layoutX="3.0" layoutY="834.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="aVR" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="3.0" layoutY="932.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="aVL" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+            <Label alignment="CENTER" layoutX="3.0" layoutY="1026.0" prefHeight="18.0" prefWidth="50.0" style="-fx-background-color: #e6005c;" text="aVF" textFill="WHITE" AnchorPane.leftAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
