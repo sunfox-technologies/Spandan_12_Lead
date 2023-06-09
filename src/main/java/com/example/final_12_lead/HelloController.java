@@ -301,17 +301,17 @@ public class HelloController implements Initializable {
                             isGraphActive = false;
                         } else if (isGraphActive && deviceDetectedFromThread.getValue()) {
                             String[] arrayList = dataFromSerialPort.split(",");
-                            System.out.println(dataFromSerialPort);
+//                            System.out.println(dataFromSerialPort);
                             bufferArray.add(Arrays.toString(arrayList));
                             Platform.runLater(() -> {
 
-                                if (graphDataSeriesV2.getData().size() >= windowSize) {
+                                if (graphDataSeriesLead1.getData().size() >= windowSize) {
                                     graphDataSeriesV1.getData().remove(0);
                                     graphDataSeriesV2.getData().remove(0);
                                     graphDataSeriesV3.getData().remove(0);
                                     graphDataSeriesV4.getData().remove(0);
                                     graphDataSeriesV5.getData().remove(0);
-                                    graphDataSeriesV6.getData().remove(0);
+//                                    graphDataSeriesV6.getData().remove(0);
                                     graphDataSeriesLead1.getData().remove(0);
                                     graphDataSeriesLead2.getData().remove(0);
                                     graphDataSeriesLead3.getData().remove(0);
@@ -400,7 +400,9 @@ public class HelloController implements Initializable {
             l1.getData().remove(graphDataSeriesLead1);
             l2.getData().remove(graphDataSeriesLead2);
             l3.getData().remove(graphDataSeriesLead3);
-
+            avl.getData().remove(graphDataSeriesAvl);
+            avf.getData().remove(graphDataSeriesAvf);
+            avr.getData().remove(graphDataSeriesAvr);
             graphDataSeriesV1.getData().clear();
             graphDataSeriesV2.getData().clear();
             graphDataSeriesV3.getData().clear();
@@ -410,6 +412,9 @@ public class HelloController implements Initializable {
             graphDataSeriesLead1.getData().clear();
             graphDataSeriesLead2.getData().clear();
             graphDataSeriesLead3.getData().clear();
+            graphDataSeriesAvf.getData().clear();
+            graphDataSeriesAvl.getData().clear();
+            graphDataSeriesAvr.getData().clear();
         });
     }
 

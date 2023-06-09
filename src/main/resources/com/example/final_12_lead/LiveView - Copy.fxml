@@ -247,7 +247,7 @@
                      <children>
                         <LineChart fx:id="avr" alternativeRowFillVisible="false" animated="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" prefHeight="150.0" prefWidth="734.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
                            <xAxis>
-                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" fx:id="xAxisAvr" />
+                              <CategoryAxis animated="false" gapStartAndEnd="false" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxisAvr" />
                            </xAxis>
                            <yAxis>
                               <NumberAxis animated="false" forceZeroInRange="false" minorTickCount="0" minorTickVisible="false" side="LEFT" tickLabelsVisible="false" tickMarkVisible="false" />

@@ -37,6 +37,7 @@ public class SpandanUsbCommunication {
         String tempData = "";
         try {
             while (bufferData.toUpperCase().contains("\n")) {
+//                System.out.println(bufferData);
 
 
                 tempData = bufferData.substring(0, bufferData.toUpperCase().indexOf("\n"));
@@ -59,7 +60,7 @@ public class SpandanUsbCommunication {
     static SerialCommunication serialCom = new SerialCommunication(onDataReceiveListenerFromThread);
 
     private static void startTransmission() {
-        serialCom.startTransmission("c");
+        serialCom.startTransmission("d");
         bufferData = "";
     }
 
