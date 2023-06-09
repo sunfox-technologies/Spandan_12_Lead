@@ -55,7 +55,7 @@ class LineChartUpdater implements Runnable {
                 graphDataSeriesV3.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[5])));
                 graphDataSeriesV4.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[6])));
                 graphDataSeriesV5.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[7])));
-//                graphDataSeriesV6.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[8])));
+                graphDataSeriesV6.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), Double.valueOf(arrayList[8])));
                 graphDataSeriesAvl.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), (( Double.valueOf(arrayList[1]) - Double.valueOf(arrayList[0])))/sqrt(3)));
                 graphDataSeriesAvr.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer), (( Double.valueOf(arrayList[0]) - Double.valueOf(arrayList[1]))*2.0)/sqrt(3)));
                 graphDataSeriesAvf.getData().add(new XYChart.Data<>(String.valueOf(graphPointIncrementer),(( Double.valueOf(arrayList[1]) - Double.valueOf(arrayList[0]))*2.0)/sqrt(3)));

@@ -311,7 +311,7 @@ public class HelloController implements Initializable {
                                     graphDataSeriesV3.getData().remove(0);
                                     graphDataSeriesV4.getData().remove(0);
                                     graphDataSeriesV5.getData().remove(0);
-//                                    graphDataSeriesV6.getData().remove(0);
+                                    graphDataSeriesV6.getData().remove(0);
                                     graphDataSeriesLead1.getData().remove(0);
                                     graphDataSeriesLead2.getData().remove(0);
                                     graphDataSeriesLead3.getData().remove(0);
