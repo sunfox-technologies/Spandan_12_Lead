@@ -285,6 +285,7 @@ public class HelloController implements Initializable {
                 graphDataSeriesAvl.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeriesAvf.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeriesAvr.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
+                graphDataSeriesLead3.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
 
             });
             Thread thread = new Thread(() -> {
