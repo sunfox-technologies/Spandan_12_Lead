@@ -18,7 +18,6 @@ public class TestMain extends Application {
                 FXMLLoader fxmlLoader = new FXMLLoader(TestMain.class.getResource("LiveView.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
-//                stage.setFullScreen(false);
                 stage.setMaximized(true);
                 stage.setScene(scene);
                 stage.getIcons().add(new Image(Objects.requireNonNull(TestMain.class.getResourceAsStream("logo.png"))));

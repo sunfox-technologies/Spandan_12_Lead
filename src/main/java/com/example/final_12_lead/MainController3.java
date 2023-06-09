@@ -201,7 +201,7 @@ public class MainController3 implements Initializable {
             chart8.getData().add(graphDataSeries8);
             Platform.runLater(() -> {
                 graphDataSeries1.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
-                graphDataSeries2.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
+                graphDataSeries2.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: purple;" + "-fx-stroke-width: 1px");
                 graphDataSeries3.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeries4.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
                 graphDataSeries5.getNode().lookup(".chart-series-line").setStyle("-fx-stroke: black;" + "-fx-stroke-width: 1px");
@@ -215,23 +215,11 @@ public class MainController3 implements Initializable {
                     public void usbOnDataReceive(String dataFromSerialPort) throws InterruptedException {
                         if (dataFromSerialPort.contains("error")) {
                             isGraphActive = false;
-//                            Platform.runLater(() -> {
-//                            ecgGraphLineChart.setVisible(false);
-//                                paneContainingGraph.setVisible(false);
-//                            System.out.println(dataFromSerialPort);
-//                            });
-//                            Platform.runLater(() -> {
-//                                JFXSnackbar snackbar = new JFXSnackbar(paneContainingGraph);
-//                                snackbar.getStylesheets().add("com/example/demo/style.css");
-//                                snackbar.show("Something Went Wrong Please Try Again", 1000);
-//                                snackbar.lookup(".jfx-snackbar-toast").setStyle("-fx-text-fill: red;");
-//                            });
                         }
                         if (dataFromSerialPort.equals("Port Closed")) {
                             isGraphActive = false;
                         } else if (isGraphActive && deviceDetectedFromThread.getValue()) {
                             String[] arrayList = dataFromSerialPort.split(",");
-//                            System.out.println(arrayList[2]);
                             bufferArray.add(Arrays.toString(arrayList));
                             Platform.runLater(() -> {
                                 if (graphDataSeries1.getData().size() >= windowSize) {
