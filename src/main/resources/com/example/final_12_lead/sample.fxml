@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="861.0" prefWidth="1466.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.final_12_lead.SampleController">
+   <content>
+      <AnchorPane prefHeight="860.0" prefWidth="1455.0">
+         <children>
+            <VBox fx:id="vbox" layoutX="-1.0" layoutY="-3.0" prefHeight="862.0" prefWidth="1238.0" />
+            <VBox layoutX="1205.0" layoutY="-1.0" prefHeight="861.0" prefWidth="258.0" />
+            <MenuBar fx:id="startLogging" layoutX="1279.0" layoutY="24.0" prefHeight="30.0" prefWidth="183.0">
+               <padding>
+                  <Insets top="3.0" />
+               </padding>
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#menuItemCloseButton" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" onAction="#menuItemDeleteButton" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#menuHelpAboutButton" text="About" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Logging">
+                     <items>
+                        <MenuItem fx:id="menuStartLogging" mnemonicParsing="false" onAction="#menuStartLoggingButton" text="Start Logging" />
+                        <MenuItem fx:id="menuStopLogging" mnemonicParsing="false" onAction="#menuStopLoggingButton" text="Stop Logging" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <Label fx:id="loggingStatus" alignment="CENTER" layoutX="1305.0" layoutY="64.0" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: red;" text="Device Disconnected" textFill="#ebeeef">
+               <effect>
+                  <Reflection />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
